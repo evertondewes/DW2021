@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let pointerX = -1;
+        let pointerY = -1;
+        document.onmousemove = function(event) {
+            pointerX = event.pageX;
+            pointerY = event.pageY;
+        }
+        setInterval(pointerCheck, 1000);
+        function pointerCheck() {
+            console.log('Cursor at: '+pointerX+', '+pointerY);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
