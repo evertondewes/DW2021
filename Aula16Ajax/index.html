@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function retornoSite(){
+            // console.log(this.readyState , this.status);
+            if(this.readyState == 4 && this.status == 200) {
+                document.getElementById('confirmacao_envio').innerText = this.responseText;
+            }
+        }
+
+        function enviarMensagem() {
+            let mensagem = document.getElementById('texto').value;
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = retornoSite;
+            req.open("GET", "api/salvar_mensagem.php?mensagem=" + mensagem, true);
+            req.send();
+            // console.log('mensagem enviada');
+        }
+
+        function retornoMensagens(){
+            if(this.readyState == 4 && this.status == 200) {
+                document.getElementById('mensagens').innerText = this.responseText;
+            }
+        }
+
+        function lerMensagens() {
+            let req = new XMLHttpRequest();
+            req.onreadystatechange = retornoMensagens;
+            req.open("GET", "api/ler_mensagens.php", true);
+            req.send();
+        }
+
+        setInterval(lerMensagens, 1000);
+
+    </script>
+</head>
+<body>
+<form onsubmit="return false;">
+    texto para enviar: <input type="text" id="texto"> <br>
+    <input type="button" value="Enviar" onclick="enviarMensagem();">
+</form>
+<div id="confirmacao_envio"></div>
+<pre id="mensagens"></pre>
+</body>
+</html>

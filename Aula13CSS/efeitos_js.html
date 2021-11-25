@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td:hover {
+            background-color: #0c0dcd;
+        }
+        input:focus {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    Entre com o nome: <input type="text" name="nome"><br>
+    Idade <input type="text" name="idade"><br>
+    Edendero <input type="text" name="endereco">
+</form>
+<table style="border-style: dotted">
+    <tr >
+        <td  onMouseOver="this.style.color='#0F0';
+                          this.style.backgroundColor='#0c0dcd'"
+             onMouseOut="this.style.color='#00F';t
+                        his.style.backgroundColor='#FFF'">Teste 11</td>
+        <td>Teste 12</td>
+    </tr>
+    <tr >
+        <td style="border: 1px solid black; ">Teste 21</td>
+        <td>Teste 22</td>
+    </tr>
+</table>
+
+</body>
+</html>

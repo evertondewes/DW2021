@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .cor {
+        background-color: yellow;
+    }
+    .fonte {
+        font-family: Algerian;
+    }
+    .fonte-pequena {
+        font-size: x-small;
+        color: green;
+    }
+    .tamanho {
+        font-size: large;
+    }
+</style>
+</head>
+<body>
+<form onsubmit="return false;">
+    <input type="color"
+    onchange="
+document.getElementById('dv1').style.backgroundColor= this.value">
+    <button id="bt1"
+        class="cor fonte tamanho"
+        onclick="
+        this.className ='fonte-pequena' ">
+    Pressione</button>
+    <button onclick="
+        this.className +=' fonte-pequena' "
+
+            class="cor fonte tamanho" >
+        Pressione 2</button>
+    <div id="dv1" onclick="
+        this.className +='fonte-pequena' ">Texto de teste</div>
+</form>
+</body>
+</html>

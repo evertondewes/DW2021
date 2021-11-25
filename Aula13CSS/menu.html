@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Menu Simples com CSS</title>
+  <style>
+    nav {
+      float: left;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 150px;
+    }
+    nav ul li {
+      position: relative;
+    }
+
+    nav li ul {
+      position: absolute;
+      left: 149px;
+      top: 0;
+      display: none;
+    }
+
+    nav li:hover ul {
+      display: block;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 5px;
+      border-width: 1px; /*border: 1px solid;*/
+      border-style: solid;
+      background: white;
+    }
+    nav ul li a:hover {
+      background: #000000;
+      color: #ffffff; /* fff é igual */
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#">Item A</a></li>
+    <li><a href="#">Item C</a>
+      <ul>
+        <li><a href="#">Item D</a></li>
+        <li><a href="#">Item F</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Item G</a></li>
+    <li><a href="#">Item H</a></li>
+  </ul>
+  <ul>
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 3</a>
+      <ul>
+        <li><a href="#">Item D</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<main>
+  <article>
+    <h1>Início</h1>
+    <p>Texto</p>
+    <p>Texto</p>
+    <p>Texto</p>
+  </article>
+</main>
+</body>
+</html>

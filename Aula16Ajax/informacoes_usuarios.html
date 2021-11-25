@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function buscarDados(str) {
+            if (str == "") {
+                document.getElementById("texto").innerHTML = "";
+                return;
+            } else {
+                let xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // console.log(this.responseText);
+                        let jsonResposta = JSON.parse(this.responseText)
+                        // console.log(JSON.stringify(this.responseText));
+                        document.getElementById("texto").innerHTML = trasformarJsonEmHTML(jsonResposta);
+                    }
+                };
+                xmlhttp.open("GET", "api/dados.php?id=" + str, true);
+                xmlhttp.send();
+            }
+        }
+
+        function trasformarJsonEmHTML(objeto) {
+            html = "<table border='1'>   "
+                + " <tr>"
+                + "<th>Nome</th>"
+                + "<th>Idade</th>"
+                + "<th>Cidade</th>"
+                + " </tr>"
+                + " <tr>"
+                + "<td>"+objeto[0].nome+"</td>"
+                + "<td>"+objeto[0].idade+"</td>"
+                + "<td>"+objeto[0].cidade+"</td>"
+                + " </tr>"
+                +"</table>";
+
+            return html;
+
+        }
+    </script>
+</head>
+<body>
+<form>
+    <select name="usuarios" onchange="buscarDados(this.value)">
+        <option value="">Selecione uma pessoa:</option>
+        <option value="1">João</option>
+        <option value="2">Pedro</option>
+        <option value="3">Paulo</option>
+        <option value="4">José</option>
+    </select>
+</form>
+<br>
+<div id="texto"><b>Dados da pessoa...</b></div>
+</body>
+</html>
